@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  web:
+    build: ./services/app
+    ports:
+      - "5000:5000"
+    command: flask run --host=0.0.0.0
+    volumes:
+      - ./services/app:/app
+    cpus: 2.0
+    mem_limit: 500m
