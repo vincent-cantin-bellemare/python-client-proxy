@@ -18,8 +18,8 @@ def test():
 
 @app.route('/')
 def home():
-    # response = requests.get('http://52.200.82.146', headers={'User-Agent': 'Mozilla/5.0', 'Host': 'www.cyberpublicity.com'})
-    response = requests.get('https://nickdimakis.com/en/', headers={'User-Agent': 'Mozilla/5.0'})
+    # response = requests.get('http://1.2.3.4', headers={'User-Agent': 'Mozilla/5.0', 'Host': 'www.cyberpublicity.com'})
+    response = requests.get('https://website.com/en/', headers={'User-Agent': 'Mozilla/5.0'})
     soup = BeautifulSoup(response.content, 'html5lib') # html5lib or lxml
 
     keywords = ['gtag', 'googletagmanager']
