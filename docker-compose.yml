@@ -3,9 +3,20 @@ services:
   web:
     build: ./services/app
     ports:
-      - "5000:5000"
+      - "5010:5000"
     command: flask run --host=0.0.0.0
     volumes:
       - ./services/app:/app
     cpus: 2.0
     mem_limit: 500m
+    environment:
+      - FLASK_DEBUG=1
+
+  varnish:
+    image: varnish:latest
+    ports:
+      - "8010:80"
+    depends_on:
+      - web
+    volumes:
+      - ./services/varnish:/etc/varnish:ro
